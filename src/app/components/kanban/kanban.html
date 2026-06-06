@@ -1,0 +1,60 @@
+<!-- Ajoute ce bloc AVANT la div .kanban-page -->
+<div class="kanban-topbar">
+  <button class="btn-back" (click)="goBack()">← Retour aux projets</button>
+  <span class="kanban-label">📋 Tableau Kanban</span>
+</div>
+
+<div class="kanban-page">
+  <!-- Toolbar -->
+  <div class="toolbar">
+    <div class="filters">
+      <select [(ngModel)]="filterPriority" (change)="onFilterChange()" [ngModelOptions]="{standalone: true}">
+        <option value="">Toutes les priorités</option>
+        <option value="high">Haute</option>
+        <option value="medium">Moyenne</option>
+        <option value="low">Basse</option>
+      </select>
+
+      <select [(ngModel)]="filterAssignee" (change)="onFilterChange()" [ngModelOptions]="{standalone: true}">
+        <option value="">Tous les responsables</option>
+        <option *ngFor="let a of assignees" [value]="a">{{ a }}</option>
+      </select>
+
+      <button class="btn-reset" (click)="resetFilters()">🔄 Réinitialiser</button>
+    </div>
+
+    <button class="btn-add" (click)="openForm()">+ Nouvelle tâche</button>
+  </div>
+
+  <!-- Colonnes Kanban -->
+  <div class="kanban-board">
+    <div class="kanban-column" *ngFor="let col of columns">
+      <div class="column-header" [style.border-top-color]="col.color">
+        <span class="column-title">{{ col.label }}</span>
+        <span class="column-count">{{ (getTasksForColumn(col.id) | async)?.length }}</span>
+      </div>
+
+      <div class="column-body">
+        <app-task-card
+          *ngFor="let task of (getTasksForColumn(col.id) | async)"
+          [task]="task"
+          (deleteTask)="onDeleteTask($event)"
+          (editTask)="onEditTask($event)"
+          (moveTask)="onMoveTask($event)">
+        </app-task-card>
+
+        <div class="empty-column" *ngIf="(getTasksForColumn(col.id) | async)?.length === 0">
+          <p>Aucune tâche</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal formulaire -->
+<app-task-form
+  *ngIf="showForm"
+  [taskToEdit]="taskToEdit"
+  (submitTask)="onSubmitTask($event)"
+  (cancelForm)="showForm = false">
+</app-task-form>

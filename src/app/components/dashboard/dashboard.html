@@ -1,0 +1,82 @@
+<div class="dashboard" *ngIf="stats$ | async as stats">
+  <h2 class="dashboard-title">📊 Tableau de Bord</h2>
+  <p class="dashboard-subtitle">KPI en temps réel via RxJS Observables</p>
+
+  <div class="kpi-grid">
+    <div class="kpi-card kpi-total">
+      <div class="kpi-icon">📋</div>
+      <div class="kpi-value">{{ stats.total }}</div>
+      <div class="kpi-label">Total des tâches</div>
+    </div>
+
+    <div class="kpi-card kpi-todo">
+      <div class="kpi-icon">📌</div>
+      <div class="kpi-value">{{ stats.todo }}</div>
+      <div class="kpi-label">À faire</div>
+    </div>
+
+    <div class="kpi-card kpi-inprogress">
+      <div class="kpi-icon">🔄</div>
+      <div class="kpi-value">{{ stats.inprogress }}</div>
+      <div class="kpi-label">En cours</div>
+    </div>
+
+    <div class="kpi-card kpi-done">
+      <div class="kpi-icon">✅</div>
+      <div class="kpi-value">{{ stats.done }}</div>
+      <div class="kpi-label">Terminées</div>
+    </div>
+
+    <div class="kpi-card kpi-high">
+      <div class="kpi-icon">🔥</div>
+      <div class="kpi-value">{{ stats.highPriority }}</div>
+      <div class="kpi-label">Priorité haute</div>
+    </div>
+
+    <div class="kpi-card kpi-rate">
+      <div class="kpi-icon">🏆</div>
+      <div class="kpi-value">{{ stats.completionRate }}%</div>
+      <div class="kpi-label">Taux de complétion</div>
+    </div>
+  </div>
+
+  <!-- Barre de progression -->
+  <div class="progress-section">
+    <h3>Avancement global du projet</h3>
+    <div class="progress-bar-container">
+      <div class="progress-bar" [style.width.%]="stats.completionRate"></div>
+    </div>
+    <span class="progress-label">{{ stats.completionRate }}% des tâches terminées</span>
+  </div>
+
+  <!-- Règles métier -->
+  <div class="rules-section">
+    <h3>📐 Règles Métier Actives</h3>
+    <div class="rules-grid">
+      <div class="rule-item">
+        <span class="rule-id">RM-01</span>
+        <span>Titre + date d'échéance obligatoires</span>
+      </div>
+      <div class="rule-item">
+        <span class="rule-id">RM-02</span>
+        <span>Statut évolue uniquement vers l'avant</span>
+      </div>
+      <div class="rule-item">
+        <span class="rule-id">RM-03</span>
+        <span>Chaque colonne peut avoir une limite WIP</span>
+      </div>
+      <div class="rule-item">
+        <span class="rule-id">RM-04</span>
+        <span>Filtres cumulables (priorité + responsable)</span>
+      </div>
+      <div class="rule-item">
+        <span class="rule-id">RM-05</span>
+        <span>Dashboard mis à jour en temps réel (RxJS)</span>
+      </div>
+      <div class="rule-item">
+        <span class="rule-id">RM-06</span>
+        <span>Seul un admin peut créer/supprimer un projet</span>
+      </div>
+    </div>
+  </div>
+</div>

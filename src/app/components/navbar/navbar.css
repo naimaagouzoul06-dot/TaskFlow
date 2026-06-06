@@ -1,0 +1,61 @@
+.navbar {
+  background: var(--bordeaux);
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--blanc);
+  cursor: pointer;
+}
+
+.brand-icon { font-size: 24px; }
+.brand-name { font-size: 22px; font-weight: 700; letter-spacing: 1px; }
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.user-name {
+  color: var(--rose-clair);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.btn-projects {
+  background: transparent;
+  color: var(--rose-clair);
+  border: 2px solid var(--rose-clair);
+  padding: 7px 18px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.btn-projects:hover {
+  background: var(--rose-clair);
+  color: var(--bordeaux);
+}
+
+.btn-logout {
+  background: var(--rouge);
+  color: var(--blanc);
+  border: none;
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.btn-logout:hover { background: #b02239; }

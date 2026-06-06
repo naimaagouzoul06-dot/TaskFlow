@@ -1,0 +1,119 @@
+.card {
+  background: var(--blanc);
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  border-left: 4px solid var(--gris);
+  transition: transform 0.2s, box-shadow 0.2s;
+  margin-bottom: 12px;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+
+.priority-high { border-left-color: var(--rouge); }
+.priority-medium { border-left-color: var(--rose-moyen); }
+.priority-low { border-left-color: var(--bleu-glace); }
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.priority-badge {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge-high { background: #ffe0e5; color: var(--rouge); }
+.badge-medium { background: #fde8f0; color: var(--rose-moyen); }
+.badge-low { background: #e0f7fb; color: #0097a7; }
+
+.card-actions {
+  display: flex;
+  gap: 4px;
+}
+
+.btn-icon {
+  background: none;
+  border: none;
+  font-size: 14px;
+  padding: 4px 6px;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+.btn-icon:hover { background: var(--gris-clair); }
+
+.card-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--texte);
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+
+.card-desc {
+  font-size: 13px;
+  color: var(--texte-light);
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+.card-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 12px;
+}
+
+.meta-item {
+  font-size: 12px;
+  color: var(--texte-light);
+}
+
+.card-footer {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-move {
+  flex: 1;
+  padding: 6px 10px;
+  border: none;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.btn-move:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.btn-back {
+  background: var(--gris-clair);
+  color: var(--texte-light);
+}
+
+.btn-back:hover:not(:disabled) {
+  background: var(--gris);
+}
+
+.btn-forward {
+  background: var(--rouge);
+  color: var(--blanc);
+}
+
+.btn-forward:hover:not(:disabled) {
+  background: var(--bordeaux);
+}
