@@ -8,6 +8,9 @@
     <span class="user-name" *ngIf="auth.currentUser$ | async as user">
       👤 {{ user.name }}
     </span>
+    <button class="btn-dashboard" *ngIf="isOnKanban" (click)="onToggleDashboard()">
+      📊 Dashboard
+    </button>
     <button class="btn-projects" (click)="goToProjects()">Mes Projets</button>
     <button class="btn-logout" (click)="logout()">Déconnexion</button>
   </div>

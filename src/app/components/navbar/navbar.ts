@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router, RouterModule } from '@angular/router';
+import { Router, RouterModule, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs/operators';
 import { AuthService } from '../../services/auth';
 
 @Component({
@@ -11,7 +12,16 @@ import { AuthService } from '../../services/auth';
   styleUrls: ['./navbar.css']
 })
 export class NavbarComponent {
-  constructor(public auth: AuthService, private router: Router) {}
+  isOnKanban = false;
+  @Output() toggleDashboard = new EventEmitter<void>();
+
+  constructor(public auth: AuthService, private router: Router) {
+    this.router.events.pipe(
+      filter(e => e instanceof NavigationEnd)
+    ).subscribe((e: any) => {
+      this.isOnKanban = e.urlAfterRedirects.includes('/kanban');
+    });
+  }
 
   logout() {
     this.auth.logout();
@@ -20,5 +30,9 @@ export class NavbarComponent {
 
   goToProjects() {
     this.router.navigate(['/projects']);
+  }
+
+  onToggleDashboard() {
+    this.toggleDashboard.emit();
   }
 }

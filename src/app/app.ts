@@ -4,16 +4,20 @@ import { RouterOutlet, Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { NavbarComponent } from './components/navbar/navbar';
 import { AuthService } from './services/auth';
+// Ajoute ces imports
+import { DashboardComponent } from './components/dashboard/dashboard';
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, NavbarComponent],
+  imports: [CommonModule, RouterOutlet, NavbarComponent, DashboardComponent],
   templateUrl: './app.html',
   styleUrls: ['./app.css']
 })
 export class AppComponent {
   showNavbar = false;
+  showDashboard = false;
 
   constructor(private router: Router, public auth: AuthService) {
     this.router.events.pipe(
@@ -21,6 +25,11 @@ export class AppComponent {
     ).subscribe((e: any) => {
       const hiddenRoutes = ['/login', '/signup'];
       this.showNavbar = !hiddenRoutes.includes(e.urlAfterRedirects);
+      this.showDashboard = false; // reset à chaque changement de page
     });
+  }
+
+  onToggleDashboard() {
+    this.showDashboard = !this.showDashboard;
   }
 }
