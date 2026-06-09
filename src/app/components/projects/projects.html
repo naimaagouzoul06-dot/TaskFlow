@@ -1,0 +1,112 @@
+<div class="projects-page">
+  <!-- Header -->
+  <div class="page-header">
+    <div>
+      <h1>👋 Bonjour, {{ userName }} !</h1>
+      <p>Sélectionnez un projet pour accéder à son tableau Kanban.</p>
+    </div>
+    <div class="header-stats">
+      <div class="stat-badge">
+        <span class="stat-value">{{ activeProjects.length }}</span>
+        <span class="stat-label">Projets actifs</span>
+      </div>
+      <div class="stat-badge">
+        <span class="stat-value">{{ archivedProjects.length }}</span>
+        <span class="stat-label">Archivés</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Projets actifs -->
+  <section>
+    <h2 class="section-title">🚀 Projets Actifs</h2>
+    <div class="projects-grid">
+      <div
+        class="project-card"
+        *ngFor="let project of activeProjects"
+        (click)="openKanban(project)">
+
+        <div class="card-accent" [style.background]="project.color"></div>
+
+        <div class="card-body">
+          <div class="card-top">
+            <h3>{{ project.name }}</h3>
+            <span class="status-badge active">Actif</span>
+          </div>
+
+          <p class="card-desc">{{ project.description }}</p>
+
+          <div class="card-meta">
+            <span>👤 {{ project.owner }}</span>
+            <span>👥 {{ project.membersCount }} membres</span>
+            <span>📅 {{ project.createdAt }}</span>
+          </div>
+
+          <div class="progress-section">
+            <div class="progress-header">
+              <span>Avancement</span>
+              <span class="progress-pct">{{ getCompletionRate(project) }}%</span>
+            </div>
+            <div class="progress-bar-bg">
+              <div
+                class="progress-bar-fill"
+                [style.width.%]="getCompletionRate(project)"
+                [style.background]="project.color">
+              </div>
+            </div>
+            <div class="tasks-info">
+              {{ project.completedTasks }} / {{ project.tasksCount }} tâches terminées
+            </div>
+          </div>
+
+          <button class="btn-open">
+            Ouvrir le Kanban →
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projets archivés -->
+  <section *ngIf="archivedProjects.length > 0" style="margin-top: 40px;">
+    <h2 class="section-title">📦 Projets Archivés</h2>
+    <div class="projects-grid">
+      <div
+        class="project-card archived"
+        *ngFor="let project of archivedProjects">
+
+        <div class="card-accent" style="background: #9e9e9e;"></div>
+
+        <div class="card-body">
+          <div class="card-top">
+            <h3>{{ project.name }}</h3>
+            <span class="status-badge archived">Archivé</span>
+          </div>
+
+          <p class="card-desc">{{ project.description }}</p>
+
+          <div class="card-meta">
+            <span>👤 {{ project.owner }}</span>
+            <span>👥 {{ project.membersCount }} membres</span>
+          </div>
+
+          <div class="progress-section">
+            <div class="progress-header">
+              <span>Avancement</span>
+              <span class="progress-pct">{{ getCompletionRate(project) }}%</span>
+            </div>
+            <div class="progress-bar-bg">
+              <div class="progress-bar-fill"
+                [style.width.%]="getCompletionRate(project)"
+                style="background: #9e9e9e;">
+              </div>
+            </div>
+            <div class="tasks-info">
+              {{ project.completedTasks }} / {{ project.tasksCount }} tâches terminées
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,26 @@
+<div class="card" [ngClass]="'priority-' + task.priority">
+  <div class="card-header">
+    <span class="priority-badge" [ngClass]="'badge-' + task.priority">
+      {{ getPriorityLabel(task.priority) }}
+    </span>
+    <div class="card-actions">
+      <button class="btn-icon" (click)="onEdit()" title="Modifier">✏️</button>
+      <button class="btn-icon btn-delete" (click)="onDelete()" title="Supprimer">🗑️</button>
+    </div>
+  </div>
+
+  <h4 class="card-title">{{ task.title }}</h4>
+  <p class="card-desc">{{ task.description }}</p>
+
+  <div class="card-meta">
+    <span class="meta-item">👤 {{ task.assignee }}</span>
+    <span class="meta-item">📅 {{ task.dueDate }}</span>
+  </div>
+
+  <div class="card-footer">
+    <button class="btn-move btn-back" (click)="moveBackward()"
+      [disabled]="task.status === 'todo'">← Retour</button>
+    <button class="btn-move btn-forward" (click)="moveForward()"
+      [disabled]="task.status === 'done'">Avancer →</button>
+  </div>
+</div>
