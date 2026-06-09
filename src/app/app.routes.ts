@@ -20,6 +20,20 @@ export const routes: Routes = [
       import('./components/projects/projects').then(m => m.ProjectsComponent)
   },
   {
+    path: 'dashboard',
+    canActivate: [authGuard],
+    loadComponent: () =>
+      import('./components/dashboard/dashboard')
+        .then(m => m.DashboardComponent)
+  },
+   {
+    path: 'kanban',
+    canActivate: [authGuard],
+    loadComponent: () =>
+      import('./components/kanban/kanban')
+        .then(m => m.KanbanComponent)
+  },
+  {
     path: 'projects/:id/kanban',
     canActivate: [authGuard],
     loadComponent: () =>

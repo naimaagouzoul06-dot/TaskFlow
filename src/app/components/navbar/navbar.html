@@ -1,14 +1,16 @@
 <nav class="navbar">
   <div class="navbar-brand" (click)="goToProjects()">
-    <span class="brand-icon">⚡</span>
     <span class="brand-name">TaskFlow</span>
   </div>
 
   <div class="navbar-right">
-    <span class="user-name" *ngIf="auth.currentUser$ | async as user">
+    <button class="btn-projects" (click)="goToProjects()">Mes Projets</button>
+    <button class="btn-projects" (click)="goToKanban()">Kanban</button>
+    <button class="btn-projects" (click)="goToDashboard()">Dashboard</button>
+    <button class="btn-logout" (click)="logout()">Déconnexion</button>
+        <span class="user-name" *ngIf="auth.currentUser$ | async as user">
       👤 {{ user.name }}
     </span>
-    <button class="btn-projects" (click)="goToProjects()">Mes Projets</button>
-    <button class="btn-logout" (click)="logout()">Déconnexion</button>
+   
   </div>
 </nav>

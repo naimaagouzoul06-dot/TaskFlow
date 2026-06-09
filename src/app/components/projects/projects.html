@@ -2,7 +2,7 @@
   <!-- Header -->
   <div class="page-header">
     <div>
-      <h1>👋 Bonjour, {{ userName }} !</h1>
+      <h1>Bonjour, {{ userName }} !</h1>
       <p>Sélectionnez un projet pour accéder à son tableau Kanban.</p>
     </div>
     <div class="header-stats">
@@ -19,7 +19,7 @@
 
   <!-- Projets actifs -->
   <section>
-    <h2 class="section-title">🚀 Projets Actifs</h2>
+    <h2 class="section-title"> Projets Actifs</h2>
     <div class="projects-grid">
       <div
         class="project-card"
@@ -37,9 +37,9 @@
           <p class="card-desc">{{ project.description }}</p>
 
           <div class="card-meta">
-            <span>👤 {{ project.owner }}</span>
-            <span>👥 {{ project.membersCount }} membres</span>
-            <span>📅 {{ project.createdAt }}</span>
+            <span>{{ project.owner }}</span>
+            <span>{{ project.membersCount }} membres</span>
+            <span>{{ project.createdAt }}</span>
           </div>
 
           <div class="progress-section">
@@ -69,7 +69,7 @@
 
   <!-- Projets archivés -->
   <section *ngIf="archivedProjects.length > 0" style="margin-top: 40px;">
-    <h2 class="section-title">📦 Projets Archivés</h2>
+    <h2 class="section-title">Projets Archivés</h2>
     <div class="projects-grid">
       <div
         class="project-card archived"

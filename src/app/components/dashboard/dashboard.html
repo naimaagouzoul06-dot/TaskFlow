@@ -1,6 +1,5 @@
 <div class="dashboard" *ngIf="stats$ | async as stats">
   <h2 class="dashboard-title">📊 Tableau de Bord</h2>
-  <p class="dashboard-subtitle">KPI en temps réel via RxJS Observables</p>
 
   <div class="kpi-grid">
     <div class="kpi-card kpi-total">
@@ -48,35 +47,5 @@
     </div>
     <span class="progress-label">{{ stats.completionRate }}% des tâches terminées</span>
   </div>
-
-  <!-- Règles métier -->
-  <div class="rules-section">
-    <h3>📐 Règles Métier Actives</h3>
-    <div class="rules-grid">
-      <div class="rule-item">
-        <span class="rule-id">RM-01</span>
-        <span>Titre + date d'échéance obligatoires</span>
-      </div>
-      <div class="rule-item">
-        <span class="rule-id">RM-02</span>
-        <span>Statut évolue uniquement vers l'avant</span>
-      </div>
-      <div class="rule-item">
-        <span class="rule-id">RM-03</span>
-        <span>Chaque colonne peut avoir une limite WIP</span>
-      </div>
-      <div class="rule-item">
-        <span class="rule-id">RM-04</span>
-        <span>Filtres cumulables (priorité + responsable)</span>
-      </div>
-      <div class="rule-item">
-        <span class="rule-id">RM-05</span>
-        <span>Dashboard mis à jour en temps réel (RxJS)</span>
-      </div>
-      <div class="rule-item">
-        <span class="rule-id">RM-06</span>
-        <span>Seul un admin peut créer/supprimer un projet</span>
-      </div>
-    </div>
-  </div>
+  
 </div>

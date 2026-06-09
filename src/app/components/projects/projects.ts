@@ -12,6 +12,7 @@ import { AuthService } from '../../services/auth';
   styleUrls: ['./projects.css']
 })
 export class ProjectsComponent implements OnInit {
+  
   userName = '';
 
   projects: Project[] = [
@@ -20,7 +21,7 @@ export class ProjectsComponent implements OnInit {
       name: 'TaskFlow — Application Kanban',
       description: 'Application Angular de gestion de projets avec tableau Kanban, RxJS et formulaires réactifs.',
       status: 'active',
-      owner: 'Alice',
+      owner: 'salma',
       membersCount: 3,
       tasksCount: 6,
       completedTasks: 2,
@@ -32,7 +33,7 @@ export class ProjectsComponent implements OnInit {
       name: 'Dashboard Analytics',
       description: 'Tableau de bord de statistiques en temps réel pour le suivi des KPI métier.',
       status: 'active',
-      owner: 'Bob',
+      owner: 'doha',
       membersCount: 2,
       tasksCount: 8,
       completedTasks: 5,
@@ -44,7 +45,7 @@ export class ProjectsComponent implements OnInit {
       name: 'API REST Backend',
       description: 'Développement de l\'API REST avec authentification JWT et documentation Swagger.',
       status: 'active',
-      owner: 'Charlie',
+      owner: 'naima',
       membersCount: 4,
       tasksCount: 12,
       completedTasks: 7,
@@ -56,7 +57,7 @@ export class ProjectsComponent implements OnInit {
       name: 'Refonte UI Mobile',
       description: 'Redesign complet de l\'interface mobile avec nouvelle charte graphique.',
       status: 'archived',
-      owner: 'Alice',
+      owner: 'marwa',
       membersCount: 2,
       tasksCount: 10,
       completedTasks: 10,

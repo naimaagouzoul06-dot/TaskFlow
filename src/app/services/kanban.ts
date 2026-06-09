@@ -5,6 +5,7 @@ import { Task, Status } from '../models/task';
 @Injectable({
   providedIn: 'root'
 })
+
 export class KanbanService {
 
   private tasks: Task[] = [
@@ -13,7 +14,7 @@ export class KanbanService {
       title: 'Créer le module d\'authentification',
       description: 'Implémenter le login et la gestion des tokens JWT.',
       priority: 'high',
-      assignee: 'Alice',
+      assignee: 'DOHA',
       dueDate: '2025-07-10',
       status: 'todo'
     },
@@ -22,7 +23,7 @@ export class KanbanService {
       title: 'Concevoir la base de données',
       description: 'Modéliser les entités Task, User et Project.',
       priority: 'high',
-      assignee: 'Bob',
+      assignee: 'NAIMA',
       dueDate: '2025-07-05',
       status: 'todo'
     },
@@ -31,7 +32,7 @@ export class KanbanService {
       title: 'Développer l\'API REST',
       description: 'Créer les endpoints CRUD pour les tâches.',
       priority: 'medium',
-      assignee: 'Alice',
+      assignee: 'SALMA',
       dueDate: '2025-07-15',
       status: 'inprogress'
     },
@@ -40,7 +41,7 @@ export class KanbanService {
       title: 'Intégration RxJS pour les KPI',
       description: 'Utiliser des observables pour les statistiques temps réel.',
       priority: 'medium',
-      assignee: 'Charlie',
+      assignee: 'IKRAM',
       dueDate: '2025-07-20',
       status: 'inprogress'
     },
@@ -49,7 +50,7 @@ export class KanbanService {
       title: 'Setup du projet Angular',
       description: 'Initialiser le projet avec la structure de dossiers.',
       priority: 'low',
-      assignee: 'Bob',
+      assignee: 'DOHA',
       dueDate: '2025-06-28',
       status: 'done'
     },
@@ -58,7 +59,7 @@ export class KanbanService {
       title: 'Rédaction des spécifications',
       description: 'Écrire les specs fonctionnelles (Section 5).',
       priority: 'low',
-      assignee: 'Charlie',
+      assignee: 'NAIMA',
       dueDate: '2025-06-25',
       status: 'done'
     }

@@ -11,6 +11,7 @@ import { AuthService } from '../../services/auth';
   styleUrls: ['./navbar.css']
 })
 export class NavbarComponent {
+  
   constructor(public auth: AuthService, private router: Router) {}
 
   logout() {
@@ -20,5 +21,14 @@ export class NavbarComponent {
 
   goToProjects() {
     this.router.navigate(['/projects']);
+  }
+
+  goToDashboard() {
+    this.router.navigate(['/dashboard']);
+  }
+
+  
+  goToKanban() {
+    this.router.navigate(['/kanban']);
   }
 }

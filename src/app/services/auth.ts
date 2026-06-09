@@ -10,8 +10,8 @@ export interface User {
 export class AuthService {
 
   private users: { name: string; email: string; password: string }[] = [
-    { name: 'Alice', email: 'alice@taskflow.com', password: '1234' },
-    { name: 'Bob',   email: 'bob@taskflow.com',   password: '1234' }
+    { name: 'Doha', email: 'doha@taskflow.com', password: '1234' },
+    { name: 'Naima',   email: 'naima@taskflow.com',   password: '5678' }
   ];
 
   private currentUserSubject = new BehaviorSubject<User | null>(null);
