@@ -5,7 +5,6 @@ import { Task, Status } from '../models/task';
 @Injectable({
   providedIn: 'root'
 })
-
 export class KanbanService {
 
   private tasks: Task[] = [

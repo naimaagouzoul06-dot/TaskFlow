@@ -86,4 +86,10 @@ export class KanbanComponent implements OnInit {
     this.refreshStreams();
   }
 
+<<<<<<< HEAD
+=======
+  goBack() {
+  this.router.navigate(['/projects']);
+}
+>>>>>>> cfebc1011e99246acf22873bc35762c0af26476f
 }

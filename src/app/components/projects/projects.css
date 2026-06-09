@@ -195,7 +195,6 @@
 
 .btn-open:hover { background: var(--bordeaux); }
 
-
 @media (max-width: 600px) {
   .projects-grid { grid-template-columns: 1fr; }
 }

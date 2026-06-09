@@ -14,6 +14,7 @@ import { AuthService } from './services/auth';
 })
 export class AppComponent {
   showNavbar = false;
+  showDashboard = false;
 
   constructor(private router: Router, public auth: AuthService) {
     this.router.events.pipe(
@@ -21,6 +22,11 @@ export class AppComponent {
     ).subscribe((e: any) => {
       const hiddenRoutes = ['/login', '/signup'];
       this.showNavbar = !hiddenRoutes.includes(e.urlAfterRedirects);
+      this.showDashboard = false; // reset à chaque changement de page
     });
+  }
+
+  onToggleDashboard() {
+    this.showDashboard = !this.showDashboard;
   }
 }
